@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+    <includeAll path="com/example/db/changelog/"/>
+
+<!--    <changeSet id="users-db-tag" author="noor">-->
+<!--        <tagDatabase tag="users.tbl"></tagDatabase>-->
+<!--    </changeSet>-->
+
+    <changeSet id="create-users-tbl" author="noor">
+        <createTable tableName="users">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_users_id"/>
+            </column>
+            <column name="name" type="varchar(50)"></column>
+       <column name="email" type="varchar(50)"></column>
+            <column name="password" type="varchar(100)"></column>
+            <column name="roles" type="varchar(30)"></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="insert-users-1" author="noor">
+        <insert tableName="users">
+            <column name="name">Noor</column>
+            <column name="email">noor@gmail.com</column>
+            <column name="password">$2a$12$y58A9zRI0C6upEuasdbJeux/7JUi5GRtDUjRXe/9sTUS57D526/sG</column>
+            <column name="roles">USER,ADMIN</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-users-2" author="noor">
+        <insert tableName="users">
+            <column name="name">Ram</column>
+            <column name="email">ram@gmail.com</column>
+            <column name="password">$2a$12$rXZs4eGipTjnkBRuPS1CF.CKKUTFQV8PprrgnE1HxotTignlFFuwm</column>
+            <column name="roles">ADMIN</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-users-3" author="noor">
+        <insert tableName="users">
+            <column name="name">Venkat</column>
+            <column name="email">venkat@gmail.com</column>
+            <column name="password">$2a$12$xwOK75XDoLauf5N/yUk3Zuu7cCfNdwCC.B8dRzwg572hg1BXzE3Z2</column>
+            <column name="roles">USER</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
