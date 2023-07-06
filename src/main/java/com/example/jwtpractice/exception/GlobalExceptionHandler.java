@@ -23,9 +23,15 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
 
+//    @ExceptionHandler(UserUnauthorizedException.class)
+//    public ResponseEntity<ErrorResponse> handleUserUnauthorizedException(UserUnauthorizedException exception, WebRequest request){
+//        ErrorResponse errorResponse=new ErrorResponse(LocalDateTime.now(), HttpStatus.UNAUTHORIZED.value(), exception.getMessage(),request.getDescription(false));
+//        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
+//    }
+
     @ExceptionHandler(UserUnauthorizedException.class)
     public ResponseEntity<ErrorResponse> handleUserUnauthorizedException(UserUnauthorizedException exception, WebRequest request){
-        ErrorResponse errorResponse=new ErrorResponse(LocalDateTime.now(), HttpStatus.UNAUTHORIZED.value(), exception.getMessage(),request.getDescription(false));
+        ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(), HttpStatus.UNAUTHORIZED.value(), exception.getMessage(), request.getDescription(false));
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
     }
 

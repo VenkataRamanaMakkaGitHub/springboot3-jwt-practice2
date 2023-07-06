@@ -16,6 +16,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+
     @GetMapping("/users")
     @PreAuthorize("hasAuthority('ADMIN')")
     public List<User> getAllUsers(){
